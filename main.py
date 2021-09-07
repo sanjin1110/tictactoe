@@ -16,7 +16,7 @@ score=2
 
 
 def button(frame):  # Function to define a button
-    b = Button(frame, padx = 1, bg = "papaya whip", width = 3, text = "", font = ('arial', 40, 'bold'),
+    b= Button(frame, padx = 1, bg = "papaya whip", width = 3, text = "", font = ('arial', 40, 'bold'),
                relief = "sunken", bd = 5)
     return b
 
