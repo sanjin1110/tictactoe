@@ -5,23 +5,27 @@ import random as r
 top = Tk()
 top.geometry('336x410')
 top.resizable(0, 0)
-bef = Label(top, text = 'BEFORE ENTERING THE GAME')
-ore = Label(top, text = 'PLEASE MENTION YOUR...')
+top.iconbitmap("")
+top.configure(bg = "lightblue1")
+bef = Label(top, text = 'BEFORE ENTERING THE GAME', font = ("Helvetica", 10, 'bold'),
+            bg = "lightblue1",fg = "indianred2")
+ore = Label(top, text = 'PLEASE MENTION ....', font = ("Helvetica", 10, 'bold'), bg = "lightblue1",fg = "indianred2")
 bef.grid(row = 1, column = 1)
 ore.grid(row = 2, column = 1)
-name = Label(top, text = "Player 1 Name:")
+name = Label(top, text = "Player 1 Name:", font = ("Helvetica", 10, 'bold'), bg = "lightblue1", fg = "dark orchid")
 name.grid(row = 3, column = 0)
 name_entry1 = Entry(top, width = 30)
-name_entry1.grid(row = 3, column = 1)
-name2 = Label(top, text = "Player 2 Name:")
+name_entry1.grid(row = 3, column = 1, columnspan = 10, pady = 10)
+name2 = Label(top, text = "Player 2 Name:", font = ("Helvetica", 10, 'bold'), bg = "lightblue1", fg = "dark orchid")
 name2.grid(row = 4, column = 0)
 name_entry2 = Entry(top, width = 30)
-name_entry2.grid(row = 4, column = 1)
+name_entry2.grid(row = 4, column = 1, columnspan = 20)
+
 score1 = 0
 score2 = 0
 
 
-def button(frame): # Function to define a button
+def button(frame):  # Function to define a button
     b = Button(frame, padx = 1, bg = "papaya whip", width = 3, text = "", font = ('arial', 40, 'bold'),
                relief = "sunken", bd = 5)
     return b
@@ -77,6 +81,7 @@ def main():
     root.title("Tic-Tac-Toe")
     root.geometry('336x410')
     root.resizable(0, 0)
+    root.iconbitmap("iconn.ico")
     global a
     global b
     global colour
@@ -91,14 +96,15 @@ def main():
             b[i][j].grid(row = i, column = j)
     label = Label(root, text = a + "'s Chance", font = ('arial', 10, 'bold'))
     label.grid(row = 3, column = 0, columnspan = 3)
-    score_label = Label(root, text = name_entry1.get() + ' ' + 'SCORE:' + str(score1), font = ('arial', 10, 'bold'))
+    score_label = Label(root, text = name_entry1.get() + ' ' + 'score:' + str(score1), font = ('arial', 10, 'bold'))
     score_label.grid(row = 5, column = 0, columnspan = 3)
-    score_label = Label(root, text = name_entry2.get() + ' ' + 'SCORE:' + str(score2), font = ('arial', 10, 'bold'))
+    score_label = Label(root, text = name_entry2.get() + ' ' + 'score:' + str(score2), font = ('arial', 10, 'bold'))
     score_label.grid(row = 6, column = 0, columnspan = 3)
-
     root.mainloop()
 
 
-another_page = Button(top, text = 'Next', command = main)
-another_page.grid(row = 8, column = 4)
+game_page = Button(top, text = 'SAVE', command = main, font = ("Helvetica", 10, 'bold'),
+                   bg = "dark orchid", fg = "white")
+game_page.grid(row = 8, column = 1)
+
 top.mainloop()
